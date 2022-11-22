@@ -9,10 +9,14 @@ $(function () {
       type: 'POST',
       success: function (response) {
         const res = JSON.parse(response);
-        $('span#result').html(res.data)
+        if (res.status == 1) {
+          $('span#result').html(res.data)
+        } else {
+          alert('Input error');
+        }
       },
       error: function (error) {
-        $('span#result').html('Error');
+        $('span#result').html(error);
       }
     });
   });
