@@ -82,4 +82,4 @@ if __name__ == "__main__":
 
   gpt3_model = init(settings.OPENAI_DOCUMENTS_PATH, settings.OPENAI_API_KEY)
 
-  app.run(host="0.0.0.0", port=5000)
+  app.run(host="0.0.0.0", port=5001)
