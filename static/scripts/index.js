@@ -12,7 +12,7 @@ $(function () {
         $('span#result').html(res.data)
       },
       error: function (error) {
-        console.log(error);
+        $('span#result').html('Error');
       }
     });
   });
