@@ -7,16 +7,12 @@ $(function () {
       url: '/predict',
       data: { 'question': question, 'temperature': temperature },
       type: 'POST',
-      success: function (response, textStatus, xhr) {
-        if (!res.status) {
-          alert('Request error');
-        }
-
-        const res = JSON.parse(response);
-        if (res.status == 0) {
+      success: function (response) {
+        try{
+          const res = JSON.parse(response);
           $('span#result').html(res.data)
-        } else {
-          alert('Input error');
+        } catch(e) {
+          alert('Request error');
         }
       },
       error: function (error) {
