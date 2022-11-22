@@ -1,10 +1,11 @@
 $(function () {
   $('#submit').click(function (e) {
     e.preventDefault();
-    var question = $('#question').val();
+    const question = $('#question').val();
+    const temperature = $('#temperature').val();
     $.ajax({
       url: '/predict',
-      data: { 'question': question },
+      data: { 'question': question, 'temperature': temperature },
       type: 'POST',
       success: function (response) {
         const res = JSON.parse(response);

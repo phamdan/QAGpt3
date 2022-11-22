@@ -38,7 +38,8 @@ def predict():
 
   json_response = {}
   question = request.form.get('question')
-  if question is None:
+  temperature = request.form.get('temperature')
+  if question is None or temperature is None:
     abort(400)
 
   res_answers = openai.Answer.create(
@@ -49,6 +50,7 @@ def predict():
     examples_context="In 2017, U.S. life expectancy was 78.6 years.",
     examples=[["What is human life expectancy in the United States?", "78 years."]],
     max_tokens=30,
+    temperature=float(temperature),
     stop=["\n", "<|endoftext|>"]
   )
 
@@ -61,7 +63,7 @@ def predict():
     return_code = 404
 
   result = json.dumps(json_response, ensure_ascii=False).encode("utf8")
-  logger.info(f'{request.remote_addr} - Response for question "{question}" is {result}')
+  logger.info(f'{request.remote_addr} - Response for question "{question}" with temperature {temperature} is {result}')
   return result, return_code
 
 @app.errorhandler(Exception)
