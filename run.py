@@ -5,7 +5,7 @@ import settings
 import json
 
 from tqdm import tqdm
-from flask import Flask, jsonify, abort, request
+from flask import Flask, jsonify, abort, request, render_template
 from werkzeug.exceptions import HTTPException, default_exceptions
 from logger import AppLogger
 
@@ -26,6 +26,10 @@ def init(path_to_document, key_api):
   for value in documents:
       text+=(value+"\n")
   return text
+
+@app.route('/')
+def index():
+  return render_template('index.html')
 
 @app.route('/predict', methods=['POST', 'GET'])
 def predict():
