@@ -42,6 +42,10 @@ def predict():
   if question is None or temperature is None:
     abort(400)
 
+  temperature = float(temperature)
+  if temperature < 0 or temperature > 2:
+    abort(400)
+
   res_answers = openai.Answer.create(
     search_model="ada",
     model="curie",
