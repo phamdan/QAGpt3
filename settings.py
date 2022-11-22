@@ -1,4 +1,4 @@
-OPENAI_API_KEY="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"
+OPENAI_API_KEY=""
 OPENAI_DOCUMENTS_PATH="data_gpt3"
 
 # For logger

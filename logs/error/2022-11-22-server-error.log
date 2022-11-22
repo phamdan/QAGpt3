@@ -22,3 +22,5 @@
 
 2022-11-22 14:25:43,219 - ERROR - handle_exception: EXCEPTION: {"code":500,"message":"list indices must be integers or slices, not str","success":false}
 
+2022-11-22 15:23:09,629 - ERROR - handle_exception: EXCEPTION: {"code":500,"message":"Incorrect API key provided: sk-rSoar***************************************akM2. You can find your API key at https://beta.openai.com.","success":false}
+
