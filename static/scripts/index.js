@@ -9,7 +9,7 @@ $(function () {
       type: 'POST',
       success: function (response) {
         const res = JSON.parse(response);
-        if (res.status == 1) {
+        if (res.status == 0) {
           $('span#result').html(res.data)
         } else {
           alert('Input error');
