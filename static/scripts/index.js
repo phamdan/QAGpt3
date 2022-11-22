@@ -8,6 +8,7 @@ $(function () {
       data: { 'question': question, 'temperature': temperature },
       type: 'POST',
       success: function (response, textStatus, xhr) {
+        console.log(xhr.status)
         if (xhr.status != 200) {
           alert('Request error');
         }
